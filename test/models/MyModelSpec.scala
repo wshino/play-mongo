@@ -4,16 +4,8 @@ import org.specs2.mutable._
 
 import play.api.test._
 import play.api.test.Helpers._
-import org.bson.types.ObjectId
 import org.joda.time.DateTime
-//import play.api.libs.json.Format
-//import com.github.nscala_time.time.Imports._
 import com.mongodb.casbah.Imports._
-//import com.mongodb.casbah.Imports.ObjectId
-import play.api.Play.current
-import se.radley.plugin.salat._
-import se.radley.plugin.salat.Formats._
-import com.novus.salat._
 import com.mongodb.casbah.commons.conversions.scala._
 
 /**
@@ -22,7 +14,7 @@ import com.mongodb.casbah.commons.conversions.scala._
  * For more information, consult the wiki.
  */
 class MyModelSpec extends Specification {
-  
+
   "MyModel" should {
 
     // jodatime のシリアライズの場合は必ず書くこと
@@ -51,7 +43,7 @@ class MyModelSpec extends Specification {
 
         MyModel.findByDate(now).head.name mustEqual "hoge"
 
-        MyModel.findOneByName("hoge").map( r => r.name mustEqual "hoge")
+        MyModel.findOneByName("hoge").map(r => r.name mustEqual "hoge")
 
         MyModel.findOneByName("fuga") match {
           case Some(x) => false mustEqual true
@@ -60,6 +52,6 @@ class MyModelSpec extends Specification {
 
       }
     }
-    
+
   }
 }
