@@ -50,6 +50,10 @@ class MyModelSpec extends Specification {
           case _ => true mustEqual true
         }
 
+        val r = MyModel.insert(MyModel.apply(id = new ObjectId, name = "fuga", date = now))
+        MyModel.count(MongoDBObject()) mustEqual 2
+
+
       }
     }
 
